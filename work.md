@@ -3,12 +3,25 @@ layout: page
 title: Work
 ---
 
-{% for tag in site.tags %}
+<h1 class="pageHeader">Work</h1>
 
-  <h3>{{ tag[0] }}</h3>
-  <ul>
-    {% for post in tag[1] %}
-      <li><a href="{{ post.url }}">{{ post.date | date: "%B %Y" }} - {{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+{% for item in site.data.work %}
+
+  <section class="section-wide no-hover-section project-image-wrapper">
+    <picture class="fixed-ratio fixed-ratio-1600-720">
+      <img src="{{ item.images[0] }}" class="project-image fixed-ratio-content">
+  </picture>
+    <div class="main-title-box work-title-box">
+      <h2>{{ item.name }}</h2>
+      <h5>{{ item.startDate | date: "%b %Y" }}  to  
+        {% if item.endDate == "Now" %}
+        Today
+        {% else %}
+        {{ item.endDate | date: "%b %Y" }}
+        {% endif %}
+      </h5>
+    </div>
+    
+    <p>{{ item.description }}</p>
+  </section>
 {% endfor %}
