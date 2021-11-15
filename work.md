@@ -3,8 +3,6 @@ layout: page
 title: Work
 ---
 
-<h1 class="pageHeader">Work</h1>
-
 {% for item in site.data.work %}
 
   <section class="section-wide no-hover-section project-image-wrapper">
